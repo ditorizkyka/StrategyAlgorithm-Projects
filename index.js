@@ -88,7 +88,7 @@ function shortest_path() {
         ]
         
     }
-    let i  = 0
+    let i  = 2
     let j = 0 
     let min = 9999
     let jarak = 0
