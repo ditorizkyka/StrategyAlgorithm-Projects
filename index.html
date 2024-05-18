@@ -12,40 +12,127 @@
 <body class="bg-[#B6252A]">
     <section id="Introduction">
         <div class="bg-slate-50 rounded-t-[45px] mt-3 md:pb-24">
+
+            <!-- Header -->
             <header class="">
                 <div class="bg-transparent flex z-10 justify-between items-center">
-                    <div class="w-52 p-10 z-10 md:scale-150 md:ml-16">
-                        <img src="dist/img/logoblack-PhotoRoom.png-PhotoRoom.png">
+                    <div class="w-100  p-10 z-10 md:scale-150 md:ml-20">
+                        <h1 class="text-[30px] font-tittle">Telyutizen Visit</h1>
                     </div>
-                    
                     <div id="bar" class="bg-slate-900/40 rounded-lg h-12 z-10 absolute right-0 mt-28 w-full hidden">
-                        <h1>nsss</h1>
+                        <h1></h1>
                     </div>
                 </div>
             </header> 
+            
+            
+            <!-- Header -->
             <div class="flex">
-                <div class="md:w-[55%] mt-[-70px] p-20 md:mt-[10px] ">
-                    <h1 class="text-[40px] font-tittle">Telyutizen Visit</h1>
-                    <div class="relative" id="dropdownButton">
-                        <div onclick="toggleDropdown()
-                            "  class="border-solid border-gray-600 border-[1px] px-5 py-2 rounded cursor-pointer font-bold flex justify-between bg-white shadow-sm">
-                            <p id="updateDropdown">Choose University!</p>
-                            <img src="down-arrow-backup-2-svgrepo-com.svg"  class="w-4" alt="">
-                        </div>
+                
+                <div class="md:w-[58%] mt-[-70px] p-20 md:mt-[10px] ">
                     
-                        <div id="dropdown" class="rounded border-[1px] border-gray-500 bg-white  absolute top-[50px] w-[400px] hidden ">
-                            <div onclick="shortest_path()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pendidikan Indonesia</div>
-                            <div onclick="u2()" class="options cursor-pointer hover:bg-gray-300 p-3">Insitut Teknologi Bandung</div>
-                            <div onclick="u3()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pasundan</div>
-                            <div onclick="u4()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Kristen Maranatha</div>
-                            <div onclick="u5()" class="options cursor-pointer hover:bg-gray-300 p-3">UIN Bandung</div>
+                    <div class="flex mb-6">
+                        <div class="mt-5 ">
+                            <h5 class="font-bold">
+                                Strategy : 
+                            </h5>
+                        </div>
+                        <div class="relative">
+                            <input type="radio" name="strategy" id="greedy" class="peer hidden ">
+                            <label for="greedy" class="flex gap-4 ml-12 p-4 w-60 bg-white bg-opacity-90 rounded-xl backdrop-blur-2xl shadow-xl hover:bg-opacity-75 peer-checked:bg-red-800 peer-checked:text-white cursor-pointer transition">
+                                <div>
+                                    <h6 class="text-base">Greedy Strategy</h6>
+                                    <span class="text-sm opacity-60">Lorem ipsum dolor sit amet </span>
+                                </div>
+                                <div class="flex absolute top-0 right-4 bottom-0 w-6 h-6 my-auto scale-0 rounded-full bg-red-800  peer-checked:scale-100 transition delay-100">
+                                    <svg  fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" class="w-5 text-white my-auto mx-auto"></path>
+                                    </svg>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="mt-6 ml-5 ">
+                            <h5 class="text-black opacity-65">
+                                or : 
+                            </h5>
+                        </div>
 
-
+                        <div class="relative ml-5">
+                            <input type="radio" name="strategy" id="brute-force" class="peer hidden ">
+                            <label for="brute-force" class="flex gap-4 p-4 w-80 bg-white bg-opacity-90 rounded-xl backdrop-blur-2xl shadow-xl  hover:bg-opacity-75 peer-checked:bg-red-800 peer-checked:text-white cursor-pointer transition">
+                                <div>
+                                    <h6 class="text-base">Brute-Force Strategy</h6>
+                                    <span class="text-sm opacity-60">Lorem ipsum dolor sit amet </span>
+                                </div>
+                                <div class="flex absolute top-0 right-4 bottom-0 w-7 h-7 my-auto rounded-full bg-red-600  peer-checked:scale-100 scale-0 transition delay-100">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" class="w-5 text-white my-auto mx-auto"></path>
+                                    </svg>
+                                </div>
+                            </label>
                         </div>
                     </div>
+                    
+                    <div class="flex mb-10">
+                        <div class="w-50">
+                            <h5 class="whitespace-nowrap font-bold">
+                                Destination : 
+                            </h5>
+                        </div>
+                        <div class="relative bg-white rounded-xl  p-4 w-60 shadow-xl ml-6">
+                            <h6 class="text-base">Telkom University</h6>
+                            <span class="text-sm opacity-60">Lorem ipsum, dolor sit </span>
+
+                        </div>
+
+                        <svg class="ml-3 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+
+                        <div class="relative w-[320px] ml-3  " id="dropdownButton">
+                            <div onclick="toggleDropdown()
+                                "  class="border-solid border-gray-600 shadow-xl px-5 py-2 rounded-xl cursor-pointer flex justify-between bg-white ">
+                                <p id="updateDropdown">Choose University...</p>
+                                <img src="down-arrow-backup-2-svgrepo-com.svg"  class="w-4" alt="">
+                            </div>
+    
+                            <div id="dropdown" class="shadow-xl rounded-xl border-gray-500 bg-white  absolute top-[50px] w-[400px] hidden ">
+                                <div onclick="shortest_path()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pendidikan Indonesia</div>
+                                <div onclick="u2()" class="options cursor-pointer hover:bg-gray-300 p-3">Insitut Teknologi Bandung</div>
+                                <div onclick="u3()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pasundan</div>
+                                <div onclick="u4()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Kristen Maranatha</div>
+                                <div onclick="u5()" class="options cursor-pointer hover:bg-gray-300 p-3">UIN Bandung</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-full bg-[#B6252A] p-2 w-48 text-center text-white hover:bg-red-800 cursor-pointer ">
+                        Check minimum time
+                    </div>
+
+                    <!-- Result area -->
+                    <div class="inline-block ">
+
+                        <div class="route mt-10 flex" >
+                            <h5 class="mr-10">Telkom University</h5>
+                            <h5 class="mr-10">Universitas Kristen Maranatha</h5>
+                            <h5 class="mr-10">Universitas Pasundan</h5>
+                            <h5 class="mr-10">UIN Bandung</h5>
+                            <h5 class="mr-10">Telkom University</h5>
+                            <h5 class="mr-10">Institut Teknologi Bandung</h5>
+                            <h5 class="mr-10">Universitas Pahrayangan</h5>
+                            <h5 class="mr-10">Universitas Pendidikan Indonesia</h5>
+                        </div>
+
+
+                    </div>
+
+                    
                 </div>
                 
-                <div class="relative w-[600px] h-[500px] mr-20 rounded-lg ">
+                
+                <div class="relative w-[580px] h-[500px] mr-20 rounded-lg ">
                     <iframe class="absolute top-0 left-0 w-full h-full bottom-40 rounded-xl"
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.3074543492667!2d107.62911047341734!3d-6.97300699302767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e9adf177bf8d%3A0x437398556f9fa03!2sTelkom%20University!5e0!3m2!1sen!2sid!4v1715834492917!5m2!1sen!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </iframe>
@@ -53,6 +140,6 @@
             </div>   
         </div>    
     </section>
-    <script src="./index.js"> </script>
+    <script src="./index2.js"> </script>
 </body>
 </html>
