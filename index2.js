@@ -25,7 +25,7 @@ function u1() {
         document.querySelector('#updateDropdown').innerHTML = option[4].innerHTML
     }
     
-    console.log("Halo")
+    console.log("hai")
 }
 
 function u2() {
