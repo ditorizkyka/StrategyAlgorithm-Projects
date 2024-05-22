@@ -34,8 +34,8 @@
                             </h5>
                         </div>
                         <div class="relative">
-                            <input type="radio" name="strategy" id="greedy" class="peer hidden ">
-                            <label for="greedy" class="flex gap-4 ml-12 p-4 w-60  bg-white bg-opacity-90 rounded-xl backdrop-blur-2xl shadow-xl hover:bg-opacity-75 peer-checked:bg-red-800 peer-checked:text-white cursor-pointer transition">
+                            <input type="radio" name="strategy" id="greedy-s" class="peer hidden ">
+                            <label for="greedy-s" class="flex gap-4 ml-12 p-4 w-60  bg-white bg-opacity-90 rounded-xl backdrop-blur-2xl shadow-xl hover:bg-opacity-75 peer-checked:bg-red-800 peer-checked:text-white cursor-pointer transition " onclick="strategy1()">
                                 <div>
                                     <h6 class="text-base peer-checked:font-bold">Greedy Strategy</h6>
                                     <span class="text-sm opacity-60">Lorem ipsum dolor sit amet </span>
@@ -56,7 +56,7 @@
 
                         <div class="relative ml-5">
                             <input type="radio" name="strategy" id="brute-force" class="peer hidden ">
-                            <label for="brute-force" class="flex gap-4 p-4 w-60 bg-white bg-opacity-90 rounded-xl backdrop-blur-2xl shadow-xl  hover:bg-opacity-75 peer-checked:bg-red-800 peer-checked:text-white cursor-pointer transition">
+                            <label for="brute-force" class="flex gap-4 p-4 w-60 bg-white bg-opacity-90 rounded-xl backdrop-blur-2xl shadow-xl  hover:bg-opacity-75 peer-checked:bg-red-800 peer-checked:text-white cursor-pointer transition peer:" onclick="strategy2()">
                                 <div>
                                     <h6 class="text-base">Brute-Force Strategy</h6>
                                     <span class="text-sm opacity-60">Lorem ipsum dolor sit amet </span>
@@ -94,16 +94,17 @@
                             </div>
     
                             <div id="dropdown" class="shadow-xl rounded-xl border-gray-500 bg-white  absolute top-[50px] w-[400px] hidden ">
-                                <div onclick="shortest_path()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pendidikan Indonesia</div>
-                                <div onclick="u2()" class="options cursor-pointer hover:bg-gray-300 p-3">Insitut Teknologi Bandung</div>
-                                <div onclick="u3()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pasundan</div>
-                                <div onclick="u4()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Kristen Maranatha</div>
-                                <div onclick="u5()" class="options cursor-pointer hover:bg-gray-300 p-3">UIN Bandung</div>
+                                <div onclick="u1()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Kristen Maranatha</div>
+                                <div onclick="u2()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pasundan</div>
+                                <div onclick="u3()" class="options cursor-pointer hover:bg-gray-300 p-3">UIN Bandung</div>
+                                <div onclick="u4()" class="options cursor-pointer hover:bg-gray-300 p-3">Institut Teknologi Bandung</div>
+                                <div onclick="u5()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pahrayangan</div>
+                                <div onclick="u6()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pendidikan Indonesia</div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="rounded-full bg-[#B6252A] p-2 w-48 text-center text-white hover:bg-red-800 cursor-pointer ">
+                    <div class="rounded-full bg-[#B6252A] p-2 w-48 text-center text-white hover:bg-red-800 cursor-pointer " onclick="checkButton()">
                         Check minimum time
                     </div>
 
