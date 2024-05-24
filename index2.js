@@ -113,9 +113,12 @@ function u6() {
 function checkButton() {
     if(strategy == 1 ) {
         greedy_Algorithm(choices)
+        document.querySelector('.resultArea').classList.remove('hidden')
+        
     } else {
         brute_force_Algorithm(choices)
     }
+    
 }
 
 
@@ -160,6 +163,9 @@ function greedy_Algorithm(choices) {
     Univeristas.visited[5] = false
     Univeristas.visited[6] = false
 
+    let listVisited = []
+    let eachTime = []
+
 
     let input = choices
     let i  = 0
@@ -182,6 +188,8 @@ function greedy_Algorithm(choices) {
 
         jarak = jarak + min
         Univeristas.visited[i] =true
+        listVisited.push(idx)
+        eachTime.push(min)
         i = idx
 
         if (i == input) {
@@ -190,7 +198,6 @@ function greedy_Algorithm(choices) {
         min = 9999
         j =0 
     }
-    let k = 0
 
     console.log('')
     console.log('-------TELYUTIZEN VISIT CAMPUS-------')
@@ -198,19 +205,35 @@ function greedy_Algorithm(choices) {
 
     console.log('Jalur Ditemukan tercepat dengan GREEDY!')
     console.log('Start       :', Univeristas.name[0], ' ')
-    k= 1
-    while (k <= input-1) {
+    k= 0
+    m = 0 
+
+    
+    let lastDes = document.querySelector('.lastDest')
+    let timeToDest = document.querySelector('.timeToDest')
+
+    while (k <= 6 && listVisited[k] != input) {
         
-        if (Univeristas.visited[k]== true) {
-            console.log('             ', Univeristas.name[k], ' ')
+        if (Univeristas.visited[listVisited[k]] == true) {
+            console.log('             ', Univeristas.name[listVisited[k]], ' ')
+            
+            document.querySelectorAll('h5.univRes')[m].innerHTML = `${Univeristas.name[listVisited[k]]}`
+            // document.querySelectorAll('h5.univRes')[m].classList.remove('hidden') = ''
         }
+        // univDest.classList.remove('hidden')
         k++
+        m++
         
     }
+
+    lastDes.innerHTML = `: ${Univeristas.name[input]}`
+    timeToDest.innerHTML= `: ${jarak} Minutes`
+
     console.log('Destination :', Univeristas.name[input], ' ')
     console.log('Total time  :',jarak, 'Minutes');
     console.log('')
     console.log('')
-    
-    
+
 }
+
+
