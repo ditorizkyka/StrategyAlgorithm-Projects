@@ -1,239 +1,214 @@
-
-let choices = 0
-let strategy = 0 
-
-// function strategyChoices() {
-//     document.addEventListener('DOMContentLoaded', (event) => {
-//         const greedyRadio = document.getElementById('greedy-s');
-//         const bruteForceRadio = document.getElementById('brute-force');
-    
-//         // Function to handle the change event
-//         var handleRadioChange = () => {
-//             let selectedStrategy = null;
-//             if (greedyRadio.checked) {
-//                 selectedStrategy = 1;
-//             } else if (bruteForceRadio.checked) {
-//                 selectedStrategy = 2;
-//             }
-    
-//             if (selectedStrategy) {
-//                 console.log('Selected Strategy:', selectedStrategy);
-//                 // You can send this data to a server or use it as needed
-//             }
-//         };
-    
-//         // Attach change event listeners to radio buttons
-//         greedyRadio.addEventListener('change', handleRadioChange);
-//         bruteForceRadio.addEventListener('change', handleRadioChange);
-//     });
-
-//     return handleRadioChange;
-// }
+let map;
+let markers = [];
+let polyline;
+let choices = 0;
+let strategy = 0;
 
 function strategy1() {
-    strategy = 1
-    return strategy
+    strategy = 1;
+    return strategy;
 }
 
 function strategy2() {
-    strategy = 2
-    return strategy
+    strategy = 2;
+    return strategy;
 }
 
-
 function toggleDropdown() {
-    let dropdown= document.querySelector('#dropdownButton #dropdown');
+    let dropdown = document.querySelector('#dropdownButton #dropdown');
     dropdown.classList.toggle('hidden');
+}
+
+function updateDropdown(choice, text) {
+    let dropdown = document.querySelector('#dropdown');
+    dropdown.classList.toggle('hidden');
+    document.querySelector('#updateDropdown').innerHTML = text;
+    choices = choice;
+    return choices;
 }
 
 function u1() {
-    let dropdown = document.querySelector('#dropdown');
-    dropdown.classList.toggle('hidden');
-
-    let option = document.querySelectorAll('.options')
-    document.querySelector('#updateDropdown').innerHTML =option[0].innerHTML
-
-    choices = 1;
-    return choices
-
+    return updateDropdown(1, 'Universitas Kristen Maranatha');
 }
 
 function u2() {
-    let dropdown = document.querySelector('#dropdown');
-    dropdown.classList.toggle('hidden');
-
-    let option = document.querySelectorAll('.options');
-    document.querySelector('#updateDropdown').innerHTML = option[1].innerHTML
-
-    choices = 2;
-    return choices
+    return updateDropdown(2, 'Universitas Pasundan');
 }
 
 function u3() {
-    let dropdown = document.querySelector('#dropdown');
-    dropdown.classList.toggle('hidden');
-
-    let option = document.querySelectorAll('.options');
-    document.querySelector('#updateDropdown').innerHTML = option[2].innerHTML
-    choices = 3;
-    return choices
+    return updateDropdown(3, 'UIN Bandung');
 }
 
 function u4() {
-    let dropdown = document.querySelector('#dropdown');
-    dropdown.classList.toggle('hidden');
-
-    let option = document.querySelectorAll('.options');
-    document.querySelector('#updateDropdown').innerHTML = option[3].innerHTML
-
-    choices = 4;
-    return choices
+    return updateDropdown(4, 'Institut Teknologi Bandung');
 }
 
 function u5() {
-    let dropdown = document.querySelector('#dropdown');
-    dropdown.classList.toggle('hidden');
-
-    let option = document.querySelectorAll('.options');
-    document.querySelector('#updateDropdown').innerHTML = option[4].innerHTML
-    choices = 5;
-    return choices
+    return updateDropdown(5, 'Universitas Pahrayangan');
 }
 
 function u6() {
-    let dropdown = document.querySelector('#dropdown');
-    dropdown.classList.toggle('hidden');
-
-    let option = document.querySelectorAll('.options');
-    document.querySelector('#updateDropdown').innerHTML = option[4].innerHTML
-    choices = 6;
-    return choices
+    return updateDropdown(6, 'Universitas Pendidikan Indonesia');
 }
 
 function checkButton() {
-    if(strategy == 1 ) {
-        greedy_Algorithm(choices)
-        document.querySelector('.resultArea').classList.remove('hidden')
-        
+    if (strategy === 1) {
+        greedy_Algorithm(choices);
+        document.querySelector('.resultArea').classList.remove('hidden');
     } else {
-        brute_force_Algorithm(choices)
+        brute_force_Algorithm(choices);
     }
-    
+    updateMap();
 }
 
+function updateMap() {
+    clearMap();
+    const locations = [
+        {lat: -6.972889848698954, lng: 107.6316532087749}, // Telkom
+        {lat: -6.909888240860066, lng: 107.59333828645688}, // UKM
+        {lat: -6.886080005535997, lng: 107.60830018465697}, // ITB
+        {lat: -6.861981395289171, lng: 107.59385122814263}, // UPI
+        {lat: -6.8930244283366875, lng: 107.64426289128205}, // UNPAR
+        {lat: -6.924812502627048, lng: 107.63416554613575}, // UNPAS
+        {lat: -6.930967867898956, lng: 107.71779921534302} // UIN
+    ];
 
-function greedy_Algorithm(choices) {
-    const Univeristas = {
-        univ : [
-            telkom = [-1,25,40,50,-1,-1,-1 ],
-            ukm = [-1, -1, 30, -1, 15, -1,35],
-            unpas = [-1, 30, -1,15,20, 15, -1],
-            uin = [-1,-1,15,-1,-1,30,-1],
-            itb = [-1,15,20,-1,-1,15,10],
-            unpar = [-1,-1,15,30,15,-1,20],
-            upi = [-1,35,-1,-1,10,20,-1]
+    if (choices == 1) {
+        choices = 1
+    } else if (choices == 2) {
+        choices = 5
+    } else if (choices == 3) {
+        choices = 6
+    } else if (choices == 4) {
+        choices = 2
+    } else if (choices == 5) {
+        choices = 4
+    } else if (choices == 6) {
+        choices = 3
+    }
+
+    const path = locations.slice(0, choices + 1);
+
+    // Add markers
+    path.forEach(location => {
+        markers.push(new google.maps.Marker({
+            position: location,
+            map: map
+        }));
+        
+    });
+
+    // Add polyline
+    polyline = new google.maps.Polyline({
+        path: path,
+        geodesic: true,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 2,
+        map: map
+    });
+}
+
+function clearMap() {
+    // Clear markers
+    markers.forEach(marker => marker.setMap(null));
+    markers = [];
+    // Clear polyline
+    if (polyline) {
+        polyline.setMap(null);
+        polyline = null;
+    }
+}
+
+function initMap() {
+    var defaultLocation = {lat: -6.914744, lng: 107.609810};
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: defaultLocation
+    });
+}
+
+window.onload = initMap;
+
+function dataSet() {
+    const Universitas = {
+        univ: [
+            [-1, 25, 40, 50, -1, -1, -1],
+            [-1, -1, 30, -1, 15, -1, 35],
+            [-1, 30, -1, 15, 20, 15, -1],
+            [-1, -1, 15, -1, -1, 30, -1],
+            [-1, 15, 20, -1, -1, 15, 10],
+            [-1, -1, 15, 30, 15, -1, 20],
+            [-1, 35, -1, -1, 10, 20, -1]
         ],
-
-        name : [
+        name: [
             'Telkom University', 'Universitas Kristen Maranatha', 'Universitas Pasundan', 'UIN Sunan Gunung Djati Bandung',
             'Institut Teknologi Bandung', 'Universitas Pahrayangan', 'Universitas Pendidikan Indonesia'
         ],
-
-        visited : [
-            false, false,false,false,false,false
-        ]
-        
-    }
-    /*
-    TELKOM = 0 
-    UKM = 1
-    UNPAS = 2
-    UIN = 3
-    ITB = 4
-    UNPAR = 5 
-    UPI = 6
-    */
-
-    /* Proses inisiasi universitas belum dikunjungi */
-    Univeristas.visited[0] = false
-    Univeristas.visited[1] = false
-    Univeristas.visited[2] = false
-    Univeristas.visited[3] = false
-    Univeristas.visited[4] = false
-    Univeristas.visited[5] = false
-    Univeristas.visited[6] = false
-
-    let listVisited = []
-    let eachTime = []
-
-
-    let input = choices
-    let i  = 0
-    let j = 0 
-    let min = 9999
-    let jarak = 0
-    let idx = 0
-
-    while (Univeristas.visited[input] != true) {
-        
-        while(j<= 6) {
-            if (Univeristas.univ[i][j] >= 0) {
-                if (Univeristas.univ[i][j] < min && Univeristas.visited[j] == false) {
-                    min = Univeristas.univ[i][j]
-                    idx = j
-                }
-            }
-            j++
-        }
-
-        jarak = jarak + min
-        Univeristas.visited[i] =true
-        listVisited.push(idx)
-        eachTime.push(min)
-        i = idx
-
-        if (i == input) {
-            Univeristas.visited[input] =true
-        }
-        min = 9999
-        j =0 
-    }
-
-    console.log('')
-    console.log('-------TELYUTIZEN VISIT CAMPUS-------')
-    console.log('')
-
-    console.log('Jalur Ditemukan tercepat dengan GREEDY!')
-    console.log('Start       :', Univeristas.name[0], ' ')
-    k= 0
-    m = 0 
-
-    
-    let lastDes = document.querySelector('.lastDest')
-    let timeToDest = document.querySelector('.timeToDest')
-
-    while (k <= 6 && listVisited[k] != input) {
-        
-        if (Univeristas.visited[listVisited[k]] == true) {
-            console.log('             ', Univeristas.name[listVisited[k]], ' ')
-            
-            document.querySelectorAll('h5.univRes')[m].innerHTML = `${Univeristas.name[listVisited[k]]}`
-            // document.querySelectorAll('h5.univRes')[m].classList.remove('hidden') = ''
-        }
-        // univDest.classList.remove('hidden')
-        k++
-        m++
-        
-    }
-
-    lastDes.innerHTML = `: ${Univeristas.name[input]}`
-    timeToDest.innerHTML= `: ${jarak} Minutes`
-
-    console.log('Destination :', Univeristas.name[input], ' ')
-    console.log('Total time  :',jarak, 'Minutes');
-    console.log('')
-    console.log('')
-
+        visited: [false, false, false, false, false, false, false]
+    };
+    return Universitas
 }
 
+function greedy_Algorithm(choices) {
+    const Universitas = dataSet()
 
+    let listVisited = [];
+    let eachTime = [];
+    let input = choices;
+    let i = 0;
+    let j = 0;
+    let min = 9999;
+    let jarak = 0;
+    let idx = 0;
+
+    while (!Universitas.visited[input]) {
+        while (j <= 6) {
+            if (Universitas.univ[i][j] >= 0 && Universitas.univ[i][j] < min && !Universitas.visited[j]) {
+                min = Universitas.univ[i][j];
+                idx = j;
+            }
+            j++;
+        }
+
+        jarak += min;
+        Universitas.visited[i] = true;
+        listVisited.push(idx);
+        eachTime.push(min);
+        i = idx;
+
+        if (i === input) {
+            Universitas.visited[input] = true;
+        }
+        min = 9999;
+        j = 0;
+    }
+
+    console.log('');
+    console.log('-------TELYUTIZEN VISIT CAMPUS-------');
+    console.log('');
+    console.log('Jalur Ditemukan tercepat dengan GREEDY!');
+    console.log('Start       :', Universitas.name[0], ' ');
+
+    let k = 0;
+    let m = 0;
+    let lastDes = document.querySelector('.lastDest');
+    let timeToDest = document.querySelector('.timeToDest');
+
+    while (k <= 6 && listVisited[k] !== input) {
+        if (Universitas.visited[listVisited[k]]) {
+            console.log('             ', Universitas.name[listVisited[k]], ' ');
+            document.querySelectorAll('h5.univRes')[m].innerHTML = `${Universitas.name[listVisited[k]]}`;
+        }
+        k++;
+        m++;
+    }
+
+    lastDes.innerHTML = `: ${Universitas.name[input]}`;
+    timeToDest.innerHTML = `: ${jarak} Minutes`;
+
+    console.log('Destination :', Universitas.name[input], ' ');
+    console.log('Total time  :', jarak, 'Minutes');
+    console.log('');
+    console.log('');
+}

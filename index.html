@@ -6,62 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_hwLcED5FnvTmYv1Lh92atNt4Yzbmr8Q"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 </head>
 <body class="bg-[#B6252A]">
     <section id="Introduction">
         <div class="bg-slate-50 rounded-t-[45px] mt-3 md:pb-24"> 
-            
-            
-            <!-- Header -->
             <div class="flex">
-                <div class="md:w-[59%] mt-[-70px] p-20 md:mt-[10px] w-[10%] ">
+                <div class="md:w-[59%] mt-[-70px] p-20 md:mt-[10px] w-[10%]">
                     <header class="">
-                        <div class="bg-transparent  z-10 ml-7  items-center">
-                            <div class="w-100  p-10 z-10 md:scale-150 md:ml-20">
+                        <div class="bg-transparent z-10 ml-7 items-center">
+                            <div class="w-100 p-10 z-10 md:scale-150 md:ml-20">
                                 <h1 class="text-[30px] font-tittle">Telyutizen Visit</h1>
                             </div>
                             <div id="bar" class="bg-slate-900/40 rounded-lg h-12 z-10 absolute right-0 mt-28 w-full hidden">
                                 <h1></h1>
                             </div>
                         </div>
-                    </header> 
+                    </header>
                     <div class="flex mb-6">
-                        <div class="mt-5 w-50 ">
+                        <div class="mt-5 w-50">
                             <h5 class="font-bold whitespace-nowrap">
-                                Strategy : 
+                                Strategy:
                             </h5>
                         </div>
                         <div class="relative">
-                            <input type="radio" name="strategy" id="greedy-s" class="peer hidden ">
-                            <label for="greedy-s" class="flex gap-4 ml-12 p-4 w-60  bg-white bg-opacity-90 rounded-xl backdrop-blur-2xl shadow-xl hover:bg-opacity-75 peer-checked:bg-red-800 peer-checked:text-white cursor-pointer transition " onclick="strategy1()">
+                            <input type="radio" name="strategy" id="greedy-s" class="peer hidden">
+                            <label for="greedy-s" class="flex gap-4 ml-12 p-4 w-60 bg-white bg-opacity-90 rounded-xl backdrop-blur-2xl shadow-xl hover:bg-opacity-75 peer-checked:bg-red-800 peer-checked:text-white cursor-pointer transition" onclick="strategy1()">
                                 <div>
                                     <h6 class="text-base peer-checked:font-bold">Greedy Strategy</h6>
-                                    <span class="text-sm opacity-60">Lorem ipsum dolor sit amet </span>
+                                    <span class="text-sm opacity-60">Lorem ipsum dolor sit amet</span>
                                 </div>
-                                <div class="flex absolute top-0 right-4 bottom-0 w-6 h-6 my-auto scale-0 rounded-full bg-red-800  peer-checked:scale-100 transition delay-100">
-                                    <svg  fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <div class="flex absolute top-0 right-4 bottom-0 w-6 h-6 my-auto scale-0 rounded-full bg-red-800 peer-checked:scale-100 transition delay-100">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" class="w-5 text-white my-auto mx-auto"></path>
                                     </svg>
                                 </div>
                             </label>
                         </div>
                         
-                        <div class="mt-6 ml-5 ">
+                        <div class="mt-6 ml-5">
                             <h5 class="text-black opacity-65">
-                                or : 
+                                or:
                             </h5>
                         </div>
 
                         <div class="relative ml-5">
-                            <input type="radio" name="strategy" id="brute-force" class="peer hidden ">
-                            <label for="brute-force" class="flex gap-4 p-4 w-60 bg-white bg-opacity-90 rounded-xl backdrop-blur-2xl shadow-xl  hover:bg-opacity-75 peer-checked:bg-red-800 peer-checked:text-white cursor-pointer transition peer:" onclick="strategy2()">
+                            <input type="radio" name="strategy" id="brute-force" class="peer hidden">
+                            <label for="brute-force" class="flex gap-4 p-4 w-60 bg-white bg-opacity-90 rounded-xl backdrop-blur-2xl shadow-xl hover:bg-opacity-75 peer-checked:bg-red-800 peer-checked:text-white cursor-pointer transition" onclick="strategy2()">
                                 <div>
                                     <h6 class="text-base">Brute-Force Strategy</h6>
-                                    <span class="text-sm opacity-60">Lorem ipsum dolor sit amet </span>
+                                    <span class="text-sm opacity-60">Lorem ipsum dolor sit amet</span>
                                 </div>
-                                <div class="flex absolute top-0 right-4 bottom-0 w-7 h-7 my-auto rounded-full bg-red-600  peer-checked:scale-100 scale-0 transition delay-100">
+                                <div class="flex absolute top-0 right-4 bottom-0 w-7 h-7 my-auto rounded-full bg-red-600 peer-checked:scale-100 scale-0 transition delay-100">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" class="w-5 text-white my-auto mx-auto"></path>
                                     </svg>
@@ -73,102 +71,89 @@
                     <div class="flex mb-10">
                         <div class="w-50">
                             <h5 class="whitespace-nowrap font-bold">
-                                Destination : 
+                                Destination:
                             </h5>
                         </div>
-                        <div class="relative bg-white rounded-xl  p-4 w-60 shadow-xl ml-6">
-                            <h6 class="text-base">Telkom University</h6>
-                            <span class="text-sm opacity-60">Lorem ipsum, dolor sit </span>
-
+                        <div class="relative bg-white rounded-xl p-4 w-60 shadow-xl ml-6">
+                            <div class="w-60">
+                                <h6 class="text-base flex">Telkom University</h6>
+                            <span class="text-sm opacity-60">Lorem ipsum, dolor sit</span>
+                            </div>
                         </div>
 
-                        <svg class="ml-3 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
+                        <div class="mt-6 ml-5">
+                            <svg class=" w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                       
 
-                        <div class="relative w-60 ml-3  " id="dropdownButton">
-                            <div onclick="toggleDropdown()
-                                "  class="border-solid border-gray-600 shadow-xl px-5 py-2 rounded-xl cursor-pointer flex justify-between bg-white ">
-                                <p id="updateDropdown">Choose University...</p>
-                                <img src="down-arrow-backup-2-svgrepo-com.svg"  class="w-4" alt="">
-                            </div>
-    
-                            <div id="dropdown" class="shadow-xl rounded-xl border-gray-500 bg-white  absolute top-[50px] w-[400px] hidden ">
-                                <div onclick="u1()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Kristen Maranatha</div>
-                                <div onclick="u2()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pasundan</div>
-                                <div onclick="u3()" class="options cursor-pointer hover:bg-gray-300 p-3">UIN Bandung</div>
-                                <div onclick="u4()" class="options cursor-pointer hover:bg-gray-300 p-3">Institut Teknologi Bandung</div>
-                                <div onclick="u5()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pahrayangan</div>
-                                <div onclick="u6()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pendidikan Indonesia</div>
+                        <div class="relative ml-3" id="dropdownButton">
+                            <div class="w-60 ml-1">
+                                <div onclick="toggleDropdown()" class="border-solid border-gray-600 shadow-xl px-5 py-2 rounded-xl cursor-pointer flex justify-between bg-white">
+                                    <p id="updateDropdown">Choose University...</p>
+                                    <img src="down-arrow-backup-2-svgrepo-com.svg" class="w-4" alt="">
+                                </div>
+        
+                                <div id="dropdown" class="shadow-xl rounded-xl border-gray-500 bg-white absolute top-[50px] w-[400px] hidden">
+                                    <div onclick="u1()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Kristen Maranatha</div>
+                                    <div onclick="u2()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pasundan</div>
+                                    <div onclick="u3()" class="options cursor-pointer hover:bg-gray-300 p-3">UIN Bandung</div>
+                                    <div onclick="u4()" class="options cursor-pointer hover:bg-gray-300 p-3">Institut Teknologi Bandung</div>
+                                    <div onclick="u5()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pahrayangan</div>
+                                    <div onclick="u6()" class="options cursor-pointer hover:bg-gray-300 p-3">Universitas Pendidikan Indonesia</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="rounded-full bg-[#B6252A] p-2 w-48 text-center text-white hover:bg-red-800 cursor-pointer " onclick="checkButton()">
+                    <div class="rounded-full bg-[#B6252A] p-2 w-48 text-center text-white hover:bg-red-800 cursor-pointer" onclick="checkButton()">
                         Check minimum time
                     </div>
 
                     <!-- Result area -->
-                    <div class="hidden mt-10 w-32 resultArea ">
+                    <div class="hidden mt-10 w-32 resultArea">
                         <div class="w-50">
                             <h5 class="whitespace-nowrap font-bold font-tittle text-2xl">
                                 Route Result
                             </h5>
                         </div>
                         <div class="w-50 mt-4">
-                            <h5 class="whitespace-nowrap ">
-                                <span class="border-b-2 border-red-700">From</span> <span class="pl-28">:  Telkom University </span>
+                            <h5 class="whitespace-nowrap">
+                                <span class="border-b-2 border-red-700">From</span> <span class="pl-28">: Telkom University</span>
                             </h5>
-                            
                         </div>
-                        <div class="listUniv " id="listUniv">
-                            <h5 class="whitespace-nowrap pl-40 univRes "></h5>
-                            <h5 class="whitespace-nowrap pl-40 univRes "></h5>
-                            <h5 class="whitespace-nowrap pl-40 univRes "></h5>
-                            <h5 class="whitespace-nowrap pl-40 univRes "></h5>
-                            <h5 class="whitespace-nowrap pl-40 univRes "></h5>
-                            <h5 class="whitespace-nowrap pl-40 univRes "></h5>
+                        <div class="listUniv" id="listUniv">
+                            <h5 class="whitespace-nowrap pl-40 univRes"></h5>
+                            <h5 class="whitespace-nowrap pl-40 univRes"></h5>
+                            <h5 class="whitespace-nowrap pl-40 univRes"></h5>
+                            <h5 class="whitespace-nowrap pl-40 univRes"></h5>
+                            <h5 class="whitespace-nowrap pl-40 univRes"></h5>
+                            <h5 class="whitespace-nowrap pl-40 univRes"></h5>
                         </div>
 
-                        
-                            <div class="w-50 mt-1">
-                                <h5 class="whitespace-nowrap  ">
-                                    <span class="border-b-2 border-red-700">Last Destination</span><span class="pl-10 lastDest" ></span>
-                                </h5>
-                            </div>
-                            
-                        
+                        <div class="w-50 mt-1">
+                            <h5 class="whitespace-nowrap">
+                                <span class="border-b-2 border-red-700">Last Destination</span><span class="pl-10 lastDest"></span>
+                            </h5>
+                        </div>
 
                         <div class="shadow-lg w-[340px] h-10 bg-red-700 mt-6 py-2 px-4 rounded-md">
                             <h5 class="text-white font-bold">
-                                <span class="">TOTAL TIME CONSUME </span><span class="pl-2 timeToDest" ></span>
+                                <span class="">TOTAL TIME CONSUME</span><span class="pl-2 timeToDest"></span>
                             </h5>
                         </div>
 
-
-                        <div class="shadow-lg cursor-pointer mt-20 right-[48%] absolute w-14 h-14 rounded-full bg-red-700 ">
+                        <!-- <div class="shadow-lg cursor-pointer mt-20 right-[48%] absolute w-14 h-14 rounded-full bg-red-700">
                             <img class="w-8 h-8 mx-3 my-3" src="refresh-cw-alt-3-svgrepo-com.png" alt="">
-                         </div>
+                        </div> -->
                     </div>
-
-                   
-
-                    
                 </div>
-                
-                
-                <div class="relative w-[600px] h-[690px] mr-10 rounded-lg mt-10 ">
-                    <iframe class="inline top-0 left-0 w-full h-full bottom-40 rounded-xl"
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.3074543492667!2d107.62911047341734!3d-6.97300699302767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e9adf177bf8d%3A0x437398556f9fa03!2sTelkom%20University!5e0!3m2!1sen!2sid!4v1715834492917!5m2!1sen!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </iframe>
-                </div>
-            </div>   
+
+                <div class="relative w-[500px] h-[650px] ml-9 rounded-lg mt-10" id="map"></div>
+            </div>
         </div>
-
-        
-        
-        
     </section>
-    <script src="./index2.js"> </script>
+    <script src="./index2.js"></script>
 </body>
 </html>
